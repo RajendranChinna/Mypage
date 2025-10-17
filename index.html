@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>チンナサミ・ラジェンドラン | ポートフォリオ</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      line-height: 1.6;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    header {
+      background-color: #222;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      font-size: 2em;
+      margin-bottom: 5px;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav button {
+      background: #00bcd4;
+      border: none;
+      color: white;
+      padding: 10px 18px;
+      margin: 0 6px;
+      font-size: 1em;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: background 0.3s ease;
+    }
+
+    nav button:hover {
+      background: #0097a7;
+    }
+
+    nav button.active {
+      background: #007c91;
+    }
+
+    section {
+      display: none;
+      background: white;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    }
+
+    section.active {
+      display: block;
+    }
+
+    .profile-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #00bcd4;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      color: #00bcd4;
+      margin-bottom: 15px;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul li {
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 25px;
+      background-color: #00bcd4;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #0097a7;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>チンナサミ・ラジェンドラン</h1>
+    <p>ウェブ開発の学生</p>
+    <nav>
+      <button class="active" onclick="showSection('home', this)">ホーム (Home)</button>
+      <button onclick="showSection('about', this)">私について (About)</button>
+      <button onclick="showSection('projects', this)">プロジェクト (Projects)</button>
+      <button onclick="showSection('services', this)">サービス (Services)</button>
+      <button onclick="showSection('contact', this)">お問い合わせ (Contact)</button>
+    </nav>
+  </header>
+
+  <!-- Home Section -->
+  <section id="home" class="active">
+    <img src="assets/images/profile.jpg" alt="Chinnasamy Rajendran" class="profile-image" />
+    <h2>私のウェブ開発ポートフォリオへようこそ</h2>
+    <p>こんにちは！私は<strong>チンナサミ・ラジェンドラン</strong>、インド・タミルナード州出身です。</p>
+    <p>現在、HTML、CSS、JavaScript、PHPなどのウェブ開発を学習中です。</p>
+    <p>このサイトは私の成長やプロジェクトを紹介し、皆様と繋がるためのものです。</p>
+    <button class="btn" onclick="showSection('projects', document.querySelector('nav button:nth-child(3)'))">私のプロジェクトを見る →</button>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>私について</h2>
+    <p>私はインドのタミルナード州出身で、かつてCognizant Technology Solutions India Pvt LtdでIT関連の仕事をしていました。</p>
+    <p>ウェブサイト制作に興味を持ち、独学でフルスタック開発を学び始めました。</p>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>プロジェクト - 近日公開予定</h2>
+    <p>現在、プロジェクトを準備中です。もう少しお待ちください！</p>
+    <img src="assets/images/coming-soon.png" alt="Coming Soon" style="max-width: 300px; opacity: 0.7; display: block; margin: 20px auto;" />
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <h2>サービス</h2>
+    <ul>
+      <li>ウェブ開発学習と実践</li>
+      <li>フロントエンド: HTML、CSS、JavaScript</li>
+      <li>バックエンド: PHP基礎</li>
+      <li>ポートフォリオ作成サポート</li>
+    </ul>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>お問い合わせ</h2>
+    <p>訪問していただきありがとうございます。</p>
+    <ul>
+      <li>名前: チンナサミ・ラジェンドラン</li>
+      <li>メール: Rajendran2190@gmail.com</li>
+    </ul>
+    <p>メールでお気軽にご連絡ください。</p>
+  </section>
+
+<script>
+  function showSection(id, btn) {
+    // Hide all sections
+    document.querySelectorAll('section').forEach(section => {
+      section.classList.remove('active');
+    });
+    // Show selected section
+    document.getElementById(id).classList.add('active');
+
+    // Update active button style
+    document.querySelectorAll('nav button').forEach(button => {
+      button.classList.remove('active');
+    });
+    btn.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
